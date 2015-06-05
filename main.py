@@ -8,6 +8,7 @@ import euler4
 import euler5
 import euler6
 import euler7
+import euler8
 
 
-print euler7.prime(3**3**3**3)
+print euler8.adjacent_digit_product()
