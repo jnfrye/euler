@@ -9,6 +9,14 @@ import euler5
 import euler6
 import euler7
 import euler8
+import euler9
 
 
-print euler8.adjacent_digit_product()
+t = euler9.special_pythagorean_triplet()
+
+p = 1
+for x in t:
+    p *= x
+
+print p
+    
