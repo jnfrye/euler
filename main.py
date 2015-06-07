@@ -10,13 +10,7 @@ import euler6
 import euler7
 import euler8
 import euler9
+import euler10
 
 
-t = euler9.special_pythagorean_triplet()
-
-p = 1
-for x in t:
-    p *= x
-
-print p
-    
+print euler10.prime_sum()
