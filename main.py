@@ -11,6 +11,9 @@ import euler7
 import euler8
 import euler9
 import euler10
+import euler11
 
 
-print euler10.prime_sum()
+print euler11.max_grid_product(4, "number_array.txt")
+
+print euler8.adjacent_digit_product()
