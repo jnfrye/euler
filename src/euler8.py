@@ -1,5 +1,5 @@
 # -----Euler Problem 8-----
-
+#
 # 73167176531330624919225119674426574742355349194934
 # 96983520312774506326239578318016984801869478851843
 # 85861560789112949495459501737958331952853208805511
@@ -20,48 +20,100 @@
 # 84580156166097919133875499200524063689912560717606
 # 05886116467109405077541002256983155200055935729725
 # 71636269561882670428252483600823257530420752963450
+#
+# Find the thirteen adjacent digits in the above 1000-digit number that have the greatest product.
+# What is the value of this product?
 
-# Find the thirteen adjacent digits in the above 1000-digit number that have the greatest product. What is the value of
-# this product?
+import os
 
-def number_to_array(input_number=7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450):
+
+def extract_numbers_from_file(f_name, f_dir, delim=' '):
+
+    # This will take a text file of numbers and output a 2D list of those numbers
+    #
+    # ARGUMENTS:
+    #           f_name (string)         name of file
+    #           f_dir  (string)         directory file is in
+    #           delim  (string)         delimiter used to split up numbers into columns
+    #
+    # RETURNS:
+    #           lines (2D int list)     2D list of numbers in the file
+    #
+    # NOTES:
+    #           This will only work for files containing integers! (for now)
+
+    os.chdir(f_dir)
+
+    with open(f_name, 'r') as f:
+        lines = f.readlines()
+
+    for x in range(0, len(lines)):
+        lines[x] = lines[x][0:lines[x].find('\n')]
+        lines[x] = lines[x].split(delim)
+
+        for y in range(0, len(lines[x])):
+            lines[x][y] = int(lines[x][y])
+
+    return lines
+
+
+def number_to_array(input_number):
+
+    # This will take a single number and return its digits as a list
+    #
+    # ARGUMENTS:
+    #           input_number (int)      the number to be split up
+    #
+    # RETURNS:
+    #           arr (int list)          list of digits of input_number
+
     arr = []
 
     while input_number > 0:
-        arr.append( int( input_number % 10 ) )
-        input_number = input_number/10
+        arr.append(int(input_number % 10))
+        input_number = input_number / 10
 
     return arr
 
-def adjacent_digit_product(dig_num=13, input_arr=number_to_array()):
 
-    high_prod = 0
-    hp_spot = 0
+def max_adjacent_product(input_arr, dig_num=13):
+
+    # This will take a list of numbers and return the largest product of adjacent numbers
+    #
+    # ARGUMENTS:
+    #           input_arr (int list)        the list of numbers to analyze
+    #           dig_num   (int)             how many adjacent numbers to analyze the product of
+    #
+    # RETURNS:
+    #           high_prod (int)             the largest product of adjacent numbers
+
+    # initializations
+    high_prod    = 0
+    current_spot = 0
+#   hp_spot      = 0   not used yet
 
     digits = []
 
-    current_spot = 0
-
-    # Iterate until you reach the end of HUGE_NUMBER
+    # Iterate until you reach the end of input_arr
     while current_spot + dig_num < len(input_arr):
-        
+
         # Gather digits to be analyzed
         for x in range(current_spot, current_spot + dig_num):
             digits.append(input_arr[x])
 
         # Skip past zeroes; they never yield highest product
         if 0 in digits:
-            current_spot += digits.index(0) + 1 
+            current_spot += digits.index(0) + 1
 
         else:
             product = 1
-            
+
             for x in digits:
                 product *= x
 
                 if product > high_prod:
                     high_prod = product
-                    hp_spot = current_spot #TODO This is not used currently
+                    # hp_spot = current_spot #TODO This is not used currently; eventually can return this
 
             current_spot += 1
 

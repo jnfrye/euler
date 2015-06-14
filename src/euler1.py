@@ -18,7 +18,7 @@
 def sum_of_multiples(lim, div):
     # This function calculates the sum of multiples of "div" until "lim" using
     # Gauss' trick.
-    quo = lim/div                      # How many div's are in lim?
+    quo = lim / div                    # How many div's are in lim?
     s = div * quo * (quo + 1) / 2      # Gauss' trick
 
     return s
@@ -34,9 +34,9 @@ def two_d_truth_table(n):
     table = []
     col = []
 
-    for row_num in range(0, 2**n):
+    for row_num in range(0, 2 ** n):
         for col_num in range(0, n):
-            if (row_num / 2**col_num) % 2 == 0:
+            if (row_num / 2 ** col_num) % 2 == 0:
                 col.append(1)
             else:
                 col.append(0)
@@ -90,12 +90,12 @@ def sum_of_several_multiples(limit, divs=[3, 5]):
 
     s = 0                               # init. sum
     for n in divs:
-        s += sum_of_multiples(limit - 1, n) # minus 1, we don't count limit
+        s += sum_of_multiples(limit - 1, n)  # minus 1, we don't count limit
 
     # get all of the mutual products of divs to remove overcounting
     prods = list_of_products(divs)
 
     for n in prods:
-        s -= sum_of_multiples(limit - 1, n) # minus 1, we don't count limit
+        s -= sum_of_multiples(limit - 1, n)  # minus 1, we don't count limit
 
     return s

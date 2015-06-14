@@ -34,6 +34,5 @@ def largest_palindrome(digits):
             if is_palindrome(product):
                 pal_list.append(product)
         factors.remove(f1)
-        
 
     return max(pal_list)

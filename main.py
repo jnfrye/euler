@@ -1,5 +1,5 @@
 import sys
-sys.path.append("/home/jfrye/Dropbox/Jamison_Josh_Shared_UBUNTU/Programming/Python/euler/src")
+sys.path.append(sys.path[0] + "/src")  # also import from the subdirectory /src
 
 import euler1
 import euler2
@@ -14,6 +14,7 @@ import euler10
 import euler11
 
 
-print euler11.max_grid_product(4, "number_array.txt")
+# print euler11.max_grid_product(4, "number_array.txt")
 
-print euler8.adjacent_digit_product()
+
+print euler11.max_grid_product()

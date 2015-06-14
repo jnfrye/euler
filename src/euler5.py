@@ -5,7 +5,8 @@ import sympy
 
 # This new method is faster by a factor of ~63 for the default arg!
 
-def least_common_multiple(divisors=range(1,21)):
+
+def least_common_multiple(divisors=range(1, 21)):
 
     # No matter the divisors, we at least need the max divisor as an LCM
     lcm = max(divisors)
@@ -13,7 +14,7 @@ def least_common_multiple(divisors=range(1,21)):
 
     for n in divisors:
         n_factors = sympy.factorint(n)
-        
+
         for f in n_factors:
 
             # If this factor appears in the LCM ...
@@ -31,22 +32,22 @@ def least_common_multiple(divisors=range(1,21)):
             else:
                 lcm *= n_factors[f] * f
                 lcm_factors[f] = n_factors[f]
-    
+
     return lcm
 
 # OLD METHOD:
 
-#def least_common_multiple(divisors=range(1,21)):
-#    lcm = 0                 # initialize lcm = 0
-#    is_lcm = False          # initialize test to false
-#    gcd = max(divisors)     # greatest common divisor
+# def least_common_multiple(divisors=range(1,21)):
+#     lcm = 0                 # initialize lcm = 0
+#     is_lcm = False          # initialize test to false
+#     gcd = max(divisors)     # greatest common divisor
 
-#    while not is_lcm:
-#        lcm += gcd          # increment by gcd since the lcm must be a multiple of it
-#        is_lcm = True
+#     while not is_lcm:
+#         lcm += gcd          # increment by gcd since the lcm must be a multiple of it
+#         is_lcm = True
 
-#        for d in divisors:
-#            if lcm % d != 0:
-#                is_lcm = False
+#         for d in divisors:
+#             if lcm % d != 0:
+#                 is_lcm = False
 
-#    return lcm
+#     return lcm

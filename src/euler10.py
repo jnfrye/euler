@@ -4,6 +4,7 @@
 
 from sympy import sieve
 
+
 def prime_sum(limit=2000000):
 
     s = 0
