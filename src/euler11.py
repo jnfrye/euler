@@ -32,9 +32,30 @@ import os
 e11grid = euler8.extract_numbers_from_file("number_array.txt", str(os.getcwd()) + "/src")
 
 
-def transpose(tab):
+def transpose(matrix):
 
-    return map(lambda *a: list(a), *tab)    # lambda calculus magic
+    return map(lambda *a: list(a), *matrix)    # lambda calculus magic
+
+
+def extract_diagonals(matrix, min_len=1):
+
+    diags = []
+
+    for row in range(min_len - 1, min(len(matrix), len(matrix[0]))):
+        # This iterates down the rows, starting at min_len - 1, ending at whatever is
+        # smaller, the number of rows or number of columns.
+
+        diags.append([])
+
+        for x in range(0, row + 1):
+            diags[row - (min_len - 1)].append(matrix[row - x][x])
+
+    #TODO: So far this successfully returns the diagonals up to the last row, but stops there
+
+    return diags
+
+
+print extract_diagonals(e11grid, 4)
 
 
 def max_grid_product(grid=e11grid, digits=4):
