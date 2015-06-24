@@ -80,33 +80,24 @@ def max_grid_product(grid=e11grid, digits=4):
 
     high_prod = 0
 
-    # TODO I'd like to make a method to take in lists of lists and do this automatically ...
-    # ... and then make it so max_grid_product() consists of the 4 lines below
-    # ... and just call this shit separtely in another method that ties it all together
     for row in grid:
-        row_high_prod = euler8.max_adjacent_product(row, digits)
+        row_high_prod = euler8.max_list_product(row, digits)
         if row_high_prod > high_prod:
             high_prod = row_high_prod
 
-    diag_list = extract_diagonals(grid, digits)
+    return high_prod
 
-    for diag in diag_list:
-        diag_high_prod = euler8.max_adjacent_product(diag, digits)
-        if diag_high_prod > high_prod:
-            high_prod = diag_high_prod
 
-    grid = transpose(grid)    # transpose to check column products
+def max_2d_multidirectional_product(grid=e11grid, digits=4):
+    high_prod = max_grid_product(grid, digits)
 
-    for row in grid:
-        row_high_prod = euler8.max_adjacent_product(row, digits)
-        if row_high_prod > high_prod:
-            high_prod = row_high_prod
+    diag_grid = extract_diagonals(grid, digits)
+    high_prod = max(high_prod, max_grid_product(diag_grid, digits))
 
-    diag_list = extract_diagonals(grid, digits)   # we can get the other diags from the transpose
+    tran_grid = transpose(grid)
+    high_prod = max(high_prod, max_grid_product(tran_grid, digits))
 
-    for diag in diag_list:
-        diag_high_prod = euler8.max_adjacent_product(diag, digits)
-        if diag_high_prod > high_prod:
-            high_prod = diag_high_prod
+    tran_diag_grid = extract_diagonals(tran_grid, digits)
+    high_prod = max(high_prod, max_grid_product(tran_diag_grid, digits))
 
     return high_prod

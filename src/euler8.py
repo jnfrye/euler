@@ -76,12 +76,12 @@ def number_to_array(input_number):
     return arr
 
 
-def max_adjacent_product(input_arr, dig_num=13):
+def max_list_product(input_list, dig_num=13):
 
     # This will take a list of numbers and return the largest product of adjacent numbers
     #
     # ARGUMENTS:
-    #           input_arr (int list)        the list of numbers to analyze
+    #           input_list (int list)        the list of numbers to analyze
     #           dig_num   (int)             how many adjacent numbers to analyze the product of
     #
     # RETURNS:
@@ -94,12 +94,12 @@ def max_adjacent_product(input_arr, dig_num=13):
 
     digits = []
 
-    # Iterate until you reach the end of input_arr
-    while current_spot + dig_num < len(input_arr):
+    # Iterate until you reach the end of input_list
+    while current_spot + dig_num < len(input_list):
 
         # Gather digits to be analyzed
         for x in range(current_spot, current_spot + dig_num):
-            digits.append(input_arr[x])
+            digits.append(input_list[x])
 
         # Skip past zeroes; they never yield highest product
         if 0 in digits:

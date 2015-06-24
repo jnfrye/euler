@@ -17,4 +17,4 @@ import euler11
 # print euler11.max_grid_product(4, "number_array.txt")
 
 
-print euler11.max_grid_product()
+print euler11.max_2d_multidirectional_product()
