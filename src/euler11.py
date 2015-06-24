@@ -36,36 +36,64 @@ def transpose(matrix):
 
     return map(lambda *a: list(a), *matrix)    # lambda calculus magic
 
+# XXX deprecated
+#def extract_diagonals(matrix, min_len=1):
 
-def extract_diagonals(matrix, min_len=1):
+#    diags = []
 
-    diags = []
+#    for row in range(min_len - 1, min(len(matrix), len(matrix[0]))):
+#        # This iterates down the rows, starting at min_len - 1, ending at whatever is
+#        # smaller, the number of rows or number of columns.
 
-    for row in range(min_len - 1, min(len(matrix), len(matrix[0]))):
-        # This iterates down the rows, starting at min_len - 1, ending at whatever is
-        # smaller, the number of rows or number of columns.
+#        diags.append([])
 
-        diags.append([])
+#        for x in range(0, row + 1):
+#            diags[row - (min_len - 1)].append(matrix[row - x][x])
 
-        for x in range(0, row + 1):
-            diags[row - (min_len - 1)].append(matrix[row - x][x])
+#    #TODO: So far this successfully returns the diagonals up to the last row, but stops there
 
-    #TODO: So far this successfully returns the diagonals up to the last row, but stops there
-
-    return diags
+#    return diags
 
 
-print extract_diagonals(e11grid, 4)
+def extract_diagonals(matrix=e11grid, min_len=4):
+
+    diag_list = []
+    row_len = len(matrix)
+    col_len = len(matrix[0])
+
+    for diag in range(0, row_len + col_len - 2 * min_len + 1):
+        diag_list.append([])
+
+        row_min = min(diag + (min_len - 1), row_len - 1)
+        col_min = min(diag + (min_len - 1), col_len - 1)
+
+        row_max = max(0, diag + (min_len - 1) - (row_len - 1))  # I feel like there's a slicker way to do this?
+        col_max = max(0, diag + (min_len - 1) - (col_len - 1))
+
+        for elem in range(0, row_min - row_max + 1):
+            diag_list[diag].append(matrix[row_min - elem][col_max + elem])
+
+    return diag_list
 
 
 def max_grid_product(grid=e11grid, digits=4):
 
     high_prod = 0
 
+    # I'd like to make a method to take in lists of lists and do this automatically ...
+    # ... and then make it so max_grid_product() consists of the 4 lines below
+    # ... and just call this shit separtely in another method that ties it all together
     for row in grid:
         row_high_prod = euler8.max_adjacent_product(row, digits)
         if row_high_prod > high_prod:
             high_prod = row_high_prod
+
+    diag_list = extract_diagonals(grid, digits)
+
+    for diag in diag_list:
+        diag_high_prod = euler8.max_adjacent_product(diag, digits)
+        if diag_high_prod > high_prod:
+            high_prod = diag_high_prod
 
     grid = transpose(grid)    # transpose to check column products
 
@@ -73,5 +101,12 @@ def max_grid_product(grid=e11grid, digits=4):
         row_high_prod = euler8.max_adjacent_product(row, digits)
         if row_high_prod > high_prod:
             high_prod = row_high_prod
+
+    diag_list = extract_diagonals(grid, digits)   # we can get the other diags from the transpose
+
+    for diag in diag_list:
+        diag_high_prod = euler8.max_adjacent_product(diag, digits)
+        if diag_high_prod > high_prod:
+            high_prod = diag_high_prod
 
     return high_prod

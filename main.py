@@ -18,5 +18,3 @@ import euler11
 
 
 print euler11.max_grid_product()
-
-print euler11.
