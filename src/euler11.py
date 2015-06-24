@@ -80,7 +80,7 @@ def max_grid_product(grid=e11grid, digits=4):
 
     high_prod = 0
 
-    # I'd like to make a method to take in lists of lists and do this automatically ...
+    # TODO I'd like to make a method to take in lists of lists and do this automatically ...
     # ... and then make it so max_grid_product() consists of the 4 lines below
     # ... and just call this shit separtely in another method that ties it all together
     for row in grid:
