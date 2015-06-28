@@ -36,24 +36,6 @@ def transpose(matrix):
 
     return map(lambda *a: list(a), *matrix)    # lambda calculus magic
 
-# XXX deprecated
-#def extract_diagonals(matrix, min_len=1):
-
-#    diags = []
-
-#    for row in range(min_len - 1, min(len(matrix), len(matrix[0]))):
-#        # This iterates down the rows, starting at min_len - 1, ending at whatever is
-#        # smaller, the number of rows or number of columns.
-
-#        diags.append([])
-
-#        for x in range(0, row + 1):
-#            diags[row - (min_len - 1)].append(matrix[row - x][x])
-
-#    #TODO: So far this successfully returns the diagonals up to the last row, but stops there
-
-#    return diags
-
 
 def extract_diagonals(matrix=e11grid, min_len=4):
 
