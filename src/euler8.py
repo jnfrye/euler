@@ -24,8 +24,8 @@
 # Find the thirteen adjacent digits in the above 1000-digit number that have the greatest product.
 # What is the value of this product?
 
-import os
 
+import os
 
 def extract_numbers_from_file(f_name, f_dir, delim=' '):
 
