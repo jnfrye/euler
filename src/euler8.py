@@ -58,6 +58,7 @@ def extract_numbers_from_file(f_name, f_dir, delim=' '):
 
 
 def number_to_array(input_number):
+    #TODO: Rename this to "digits_to_array()"
 
     # This will take a single number and return its digits as a list
     #

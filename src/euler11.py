@@ -34,10 +34,38 @@ e11grid = euler8.extract_numbers_from_file("number_array.txt", str(os.getcwd()) 
 
 def transpose(matrix):
 
+    # TODO: FILL THIS OUT
+    #
+    # ARGUMENTS:
+    #           f_name (string)         name of file
+    #
+    # RETURNS:
+    #           lines (2D int list)     2D list of numbers in the file
+    #
+    # NOTES:
+    #           This will only work for files containing integers! (for now)
+    # TODO
+
+
+
     return map(lambda *a: list(a), *matrix)    # lambda calculus magic
 
 
 def extract_diagonals(matrix=e11grid, min_len=4):
+
+    # TODO: FILL THIS OUT
+    #
+    # ARGUMENTS:
+    #           f_name (string)         name of file
+    #
+    # RETURNS:
+    #           lines (2D int list)     2D list of numbers in the file
+    #
+    # NOTES:
+    #           This will only work for files containing integers! (for now)
+    # TODO
+
+
 
     diag_list = []
     row_len = len(matrix)
@@ -60,6 +88,20 @@ def extract_diagonals(matrix=e11grid, min_len=4):
 
 def max_grid_product(grid=e11grid, digits=4):
 
+    # TODO: FILL THIS OUT
+    #
+    # ARGUMENTS:
+    #           f_name (string)         name of file
+    #
+    # RETURNS:
+    #           lines (2D int list)     2D list of numbers in the file
+    #
+    # NOTES:
+    #           This will only work for files containing integers! (for now)
+    # TODO
+
+
+
     high_prod = 0
 
     for row in grid:
@@ -71,6 +113,20 @@ def max_grid_product(grid=e11grid, digits=4):
 
 
 def max_2d_multidirectional_product(grid=e11grid, digits=4):
+
+    # TODO: FILL THIS OUT
+    #
+    # ARGUMENTS:
+    #           f_name (string)         name of file
+    #
+    # RETURNS:
+    #           lines (2D int list)     2D list of numbers in the file
+    #
+    # NOTES:
+    #           This will only work for files containing integers! (for now)
+    # TODO
+
+
     high_prod = max_grid_product(grid, digits)
 
     diag_grid = extract_diagonals(grid, digits)

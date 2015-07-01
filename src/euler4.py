@@ -3,6 +3,20 @@
 
 
 def is_palindrome(number):
+
+    # TODO: FILL THIS OUT
+    #
+    # ARGUMENTS:
+    #           f_name (string)         name of file
+    #
+    # RETURNS:
+    #           lines (2D int list)     2D list of numbers in the file
+    #
+    # NOTES:
+    #           This will only work for files containing integers! (for now)
+    # TODO
+
+
     num_string = str(number)
     reverse = int(num_string[::-1])
 
@@ -10,6 +24,20 @@ def is_palindrome(number):
 
 
 def times_table(digits):
+
+    # TODO: FILL THIS OUT
+    #
+    # ARGUMENTS:
+    #           f_name (string)         name of file
+    #
+    # RETURNS:
+    #           lines (2D int list)     2D list of numbers in the file
+    #
+    # NOTES:
+    #           This will only work for files containing integers! (for now)
+    # TODO
+
+
     factors = range(10 ** (digits - 1), 10 ** digits)[::-1]
     times_tab = []
     row = []
@@ -25,6 +53,20 @@ def times_table(digits):
 
 
 def largest_palindrome(digits):
+
+    # TODO: FILL THIS OUT
+    #
+    # ARGUMENTS:
+    #           f_name (string)         name of file
+    #
+    # RETURNS:
+    #           lines (2D int list)     2D list of numbers in the file
+    #
+    # NOTES:
+    #           This will only work for files containing integers! (for now)
+    # TODO
+
+
     factors = range(10 ** (digits - 1), 10 ** digits)[::-1]
     pal_list = []
 

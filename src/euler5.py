@@ -8,6 +8,20 @@ import sympy
 
 def least_common_multiple(divisors=range(1, 21)):
 
+    # TODO: FILL THIS OUT
+    #
+    # ARGUMENTS:
+    #           f_name (string)         name of file
+    #
+    # RETURNS:
+    #           lines (2D int list)     2D list of numbers in the file
+    #
+    # NOTES:
+    #           This will only work for files containing integers! (for now)
+    # TODO
+
+
+
     # No matter the divisors, we at least need the max divisor as an LCM
     lcm = max(divisors)
     lcm_factors = sympy.factorint(lcm)
@@ -34,20 +48,3 @@ def least_common_multiple(divisors=range(1, 21)):
                 lcm_factors[f] = n_factors[f]
 
     return lcm
-
-# OLD METHOD:
-
-# def least_common_multiple(divisors=range(1,21)):
-#     lcm = 0                 # initialize lcm = 0
-#     is_lcm = False          # initialize test to false
-#     gcd = max(divisors)     # greatest common divisor
-
-#     while not is_lcm:
-#         lcm += gcd          # increment by gcd since the lcm must be a multiple of it
-#         is_lcm = True
-
-#         for d in divisors:
-#             if lcm % d != 0:
-#                 is_lcm = False
-
-#     return lcm

@@ -19,6 +19,9 @@
 
 import sympy
 
+
+#TODO: Make a funtion out of this
+
 divisors = 0
 
 n = 1

@@ -3,6 +3,20 @@
 
 
 def prime(n=6):
+
+    # TODO: FILL THIS OUT
+    #
+    # ARGUMENTS:
+    #           f_name (string)         name of file
+    #
+    # RETURNS:
+    #           lines (2D int list)     2D list of numbers in the file
+    #
+    # NOTES:
+    #           This will only work for files containing integers! (for now)
+    # TODO
+
+
     p = 3
     primes = [2, p]
 
