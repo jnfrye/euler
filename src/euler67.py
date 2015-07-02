@@ -1,7 +1,7 @@
 import euler8
 import os
 
-tri = euler8.extract_numbers_from_file("euler18data.txt", str(os.getcwd()))
+tri = euler8.extract_numbers_from_file("euler67data.txt", str(os.getcwd()))
 
 last_row = len(tri)
 

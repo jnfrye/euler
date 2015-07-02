@@ -12,9 +12,10 @@ import euler8
 import euler9
 import euler10
 import euler11
+import euler18
+import euler67
 
 
 # print euler11.max_grid_product(4, "number_array.txt")
 
-
-print euler11.max_2d_multidirectional_product()
+print euler67.tri[0]
