@@ -3,19 +3,7 @@
 
 
 def square_sum_difference(limit=10):
-
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
+    # Returns the difference between the sum of squares and square of sum of first <limit> numbers
 
     # Sum from one to limit is an arithmetic series:
     s = limit * (limit + 1) / 2
