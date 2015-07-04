@@ -1,3 +1,8 @@
+import os
+
+import src.data_manip as data_manip
+import src.list_manip as list_manip
+
 # -----Euler Problem 11-----
 #
 # What is the greatest product of four adjacent numbers in the same direction 
@@ -23,68 +28,28 @@
 # 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
 # 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 # 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
-#
-# NOTE: I've stored this in "number_array.txt"
-
-import euler8
-import os
-
-e11grid = euler8.extract_numbers_from_file("number_array.txt", str(os.getcwd()) + "/src")
 
 
-def transpose(matrix):
-    return map(lambda *a: list(a), *matrix)    # lambda calculus magic
-
-
-def extract_diagonals(matrix=e11grid, min_len=4):
-    # Returns a list of lists of the diagonals of <matrix> (not necessarily square)
-    # with at least <min_len> elements
-
-    diag_list = []
-    row_len = len(matrix)
-    col_len = len(matrix[0])
-
-    for diag in range(0, row_len + col_len - 2 * min_len + 1):
-        diag_list.append([])
-
-        row_min = min(diag + (min_len - 1), row_len - 1)
-        col_min = min(diag + (min_len - 1), col_len - 1)
-
-        row_max = max(0, diag + (min_len - 1) - (row_len - 1))  # I feel like there's a slicker way to do this?
-        col_max = max(0, diag + (min_len - 1) - (col_len - 1))
-
-        for elem in range(0, row_min - row_max + 1):
-            diag_list[diag].append(matrix[row_min - elem][col_max + elem])
-
-    return diag_list
-
-
-def max_grid_product(grid=e11grid, factors=4):
-    # Returns the largest product between <factors> adjacent numbers in each list in list of lists <grid>
-
-    high_prod = 0
-
-    for row in grid:
-        row_high_prod = euler8.max_list_product(row, factors)
-        if row_high_prod > high_prod:
-            high_prod = row_high_prod
-
-    return high_prod
+e11grid = data_manip.extract_numbers_from_file("euler11_data.txt", str(os.getcwd()) + "/data")
 
 
 def max_2d_multidirectional_product(grid=e11grid, factors=4):
     # Returns the largest product of <factors> numbers that are
     # adjacent horizontally, vertically, or diagonally in <grid>
 
-    high_prod = max_grid_product(grid, factors)                            # Rows
+    high_prod = list_manip.max_grid_product(grid, factors)                            # Rows
 
-    diag_grid = extract_diagonals(grid, factors)
-    high_prod = max(high_prod, max_grid_product(diag_grid, factors))       # Forward diagonals
+    diag_grid = list_manip.extract_diagonals(grid, factors)
+    high_prod = max(high_prod, list_manip.max_grid_product(diag_grid, factors))       # Forward diagonals
 
-    tran_grid = transpose(grid)
-    high_prod = max(high_prod, max_grid_product(tran_grid, factors))       # Columns
+    tran_grid = list_manip.transpose(grid)
+    high_prod = max(high_prod, list_manip.max_grid_product(tran_grid, factors))       # Columns
 
-    tran_diag_grid = extract_diagonals(tran_grid, factors)
-    high_prod = max(high_prod, max_grid_product(tran_diag_grid, factors))  # Backward diagonals
+    tran_diag_grid = list_manip.extract_diagonals(tran_grid, factors)
+    high_prod = max(high_prod, list_manip.max_grid_product(tran_diag_grid, factors))  # Backward diagonals
 
     return high_prod
+
+
+print "The greatest product of four adjacent numbers in the same direction \
+       (up, down, left, right, or diagonally) is", max_2d_multidirectional_product()
