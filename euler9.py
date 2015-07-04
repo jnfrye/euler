@@ -13,3 +13,9 @@ def special_pythagorean_triplet():
             triplets = [int(a), int(b), int(1000 - a - b)]
 
     return triplets
+
+prod = 1
+for x in special_pythagorean_triplet():
+    prod *= x
+
+print "The product of the Pythagorean triplet whose sum is 1000 is", prod
