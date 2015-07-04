@@ -19,19 +19,7 @@ def sum_of_multiples(lim, div):
     # This function calculates the sum of multiples of "div" up to "lim" using
     # Gauss' trick.
 
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
-    quo = lim / div                    # How many div's are in lim?
+    quo = lim / div
     s = div * quo * (quo + 1) / 2      # Gauss' trick
 
     return s
@@ -44,19 +32,6 @@ def two_d_truth_table(n):
     # 0 1
     # 1 0
     # 0 0
-
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
 
     table = []
     col = []
@@ -76,19 +51,6 @@ def two_d_truth_table(n):
 def two_d_table_display(table):
     # prints out a two-D table row by row
 
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
-
     for row in table:
         for col in row:
             print str(col),
@@ -97,20 +59,6 @@ def two_d_table_display(table):
 
 def list_of_products(vector):
     # returns a list of all possible products between elements of vector
-
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
-
 
     table = two_d_truth_table(len(vector))
 
@@ -140,22 +88,8 @@ def list_of_products(vector):
 
 
 def sum_of_several_multiples(limit, divs=[3, 5]):
-    # returns sum of multiples of each element of divs up to limit
-    # entries of divs must not include duplicates, and must be prime
-
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
-
+    # returns sum of multiples of each element of <divs> up to <limit>
+    # entries of <divs> must not include duplicates, and must be prime
 
     s = 0                               # init. sum
     for n in divs:
@@ -168,5 +102,3 @@ def sum_of_several_multiples(limit, divs=[3, 5]):
         s -= sum_of_multiples(limit - 1, n)  # minus 1, we don't count limit
 
     return s
-
-#xJables was here
