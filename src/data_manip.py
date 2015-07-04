@@ -1,8 +1,8 @@
-# ******** DATA MANIPULATION MODULE ********
-# The following are functions useful for file input/output
-
 import os
 
+
+# ******** DATA MANIPULATION MODULE ********
+# The following are functions useful for file input/output
 
 def extract_numbers_from_file(f_name, f_dir, delim=' '):
     # This will take a text file of numbers and output a 2D list of those numbers

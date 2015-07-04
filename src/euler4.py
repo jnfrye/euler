@@ -1,8 +1,8 @@
-# -----Euler Problem 4-----
-# Find the largest palindrome made from the product of two 3-digit numbers.
-
 import integers
 
+
+# -----Euler Problem 4-----
+# Find the largest palindrome made from the product of two 3-digit numbers.
 
 def largest_product_palindrome(digits=3):
     # Returns the largest palindrome that is the product of two numbers with <digits> digits

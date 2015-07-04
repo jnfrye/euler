@@ -1,8 +1,10 @@
-# ******** INTEGERS MODULE ********
-# The following functions are useful for integer analysis and manipulation
+import sympy
 
 import list_manip
 
+
+# ******** INTEGERS MODULE ********
+# The following functions are useful for integer analysis and manipulation
 
 def is_palindrome(number):
     # Returns True if <number> is a palindrome
@@ -11,6 +13,37 @@ def is_palindrome(number):
     reverse = int(num_string[::-1])
 
     return reverse - number == 0
+
+
+def least_common_multiple(divisors=range(1, 21)):
+    # Returns least common multiple of INTs in <divisors>
+
+    # No matter the divisors, we at least need the max divisor as an LCM
+    lcm = max(divisors)
+    lcm_factors = sympy.factorint(lcm)
+
+    for n in divisors:
+        n_factors = sympy.factorint(n)
+
+        for f in n_factors:
+
+            # If this factor appears in the LCM ...
+            if f in lcm_factors:
+                factor_excess = lcm_factors[f] - n_factors[f]
+
+                # ... check if there are enough of them
+                if factor_excess < 0:
+
+                    # If not, we multiply into LCM to account for this
+                    lcm *= - factor_excess * f
+                    lcm_factors[f] += - factor_excess
+
+            # If this factor does not appear in the LCM, multiple into LCM
+            else:
+                lcm *= n_factors[f] * f
+                lcm_factors[f] = n_factors[f]
+
+    return lcm
 
 
 def list_of_fibonacci(limit):

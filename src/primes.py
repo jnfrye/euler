@@ -1,8 +1,8 @@
-# ******** PRIME NUMBER MODULE ********
-# The following are functions useful for prime number analysis
-
 import sympy
 
+
+# ******** PRIME NUMBER MODULE ********
+# The following are functions useful for prime number analysis
 
 def largest_prime_factor(limit):
 
