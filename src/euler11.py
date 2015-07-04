@@ -33,39 +33,12 @@ e11grid = euler8.extract_numbers_from_file("number_array.txt", str(os.getcwd()) 
 
 
 def transpose(matrix):
-
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
-
-
     return map(lambda *a: list(a), *matrix)    # lambda calculus magic
 
 
 def extract_diagonals(matrix=e11grid, min_len=4):
-
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
-
+    # Returns a list of lists of the diagonals of <matrix> (not necessarily square)
+    # with at least <min_len> elements
 
     diag_list = []
     row_len = len(matrix)
@@ -86,56 +59,32 @@ def extract_diagonals(matrix=e11grid, min_len=4):
     return diag_list
 
 
-def max_grid_product(grid=e11grid, digits=4):
-
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
-
+def max_grid_product(grid=e11grid, factors=4):
+    # Returns the largest product between <factors> adjacent numbers in each list in list of lists <grid>
 
     high_prod = 0
 
     for row in grid:
-        row_high_prod = euler8.max_list_product(row, digits)
+        row_high_prod = euler8.max_list_product(row, factors)
         if row_high_prod > high_prod:
             high_prod = row_high_prod
 
     return high_prod
 
 
-def max_2d_multidirectional_product(grid=e11grid, digits=4):
+def max_2d_multidirectional_product(grid=e11grid, factors=4):
+    # Returns the largest product of <factors> numbers that are
+    # adjacent horizontally, vertically, or diagonally in <grid>
 
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
+    high_prod = max_grid_product(grid, factors)                            # Rows
 
-
-    high_prod = max_grid_product(grid, digits)
-
-    diag_grid = extract_diagonals(grid, digits)
-    high_prod = max(high_prod, max_grid_product(diag_grid, digits))
+    diag_grid = extract_diagonals(grid, factors)
+    high_prod = max(high_prod, max_grid_product(diag_grid, factors))       # Forward diagonals
 
     tran_grid = transpose(grid)
-    high_prod = max(high_prod, max_grid_product(tran_grid, digits))
+    high_prod = max(high_prod, max_grid_product(tran_grid, factors))       # Columns
 
-    tran_diag_grid = extract_diagonals(tran_grid, digits)
-    high_prod = max(high_prod, max_grid_product(tran_diag_grid, digits))
+    tran_diag_grid = extract_diagonals(tran_grid, factors)
+    high_prod = max(high_prod, max_grid_product(tran_diag_grid, factors))  # Backward diagonals
 
     return high_prod
