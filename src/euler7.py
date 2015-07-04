@@ -17,7 +17,7 @@ def prime(n=6):
             p += 2
             is_prime = True
             for x in primes:
-            # To be more efficient, should only check against primes that are <= sqrt (p)
+            # TODO should only check against primes that are <= sqrt (p)
                 if p % x == 0:
                     is_prime = False
             if is_prime:

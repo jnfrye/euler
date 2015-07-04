@@ -12,3 +12,7 @@ def square_sum_difference(limit=10):
     sq_s = limit * (limit + 1) * (2 * limit + 1) / 6
 
     return s ** 2 - sq_s
+
+
+print "The difference between the sum of the squares of the first one hundred \
+       natural numbers and the square of the sum is", square_sum_difference()
