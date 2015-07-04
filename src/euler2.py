@@ -5,20 +5,6 @@
 
 def sum_of_even_fib(limit):
 
-
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
-
     f = [1, 2]      # first two fibonacci numbers
     n = 1
     s = 0           # initialize sum to zero
