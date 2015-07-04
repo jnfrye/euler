@@ -3,19 +3,7 @@
 
 
 def is_palindrome(number):
-
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
+    # Tests whether <number> is a palindrome, returns BOOL
 
     num_string = str(number)
     reverse = int(num_string[::-1])
@@ -24,19 +12,7 @@ def is_palindrome(number):
 
 
 def times_table(digits):
-
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
+    # Returns a multiplication table for every number with <digits> digits
 
     factors = range(10 ** (digits - 1), 10 ** digits)[::-1]
     times_tab = []
@@ -52,20 +28,8 @@ def times_table(digits):
     return times_tab
 
 
-def largest_palindrome(digits):
-
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
+def largest_product_palindrome(digits):
+    # Returns the largest palindrome that is the product of two numbers with <digits> digits
 
     factors = range(10 ** (digits - 1), 10 ** digits)[::-1]
     pal_list = []
