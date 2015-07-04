@@ -25,10 +25,9 @@
 # What is the value of this product?
 
 
-import os
+
 
 def extract_numbers_from_file(f_name, f_dir, delim=' '):
-
     # This will take a text file of numbers and output a 2D list of those numbers
     #
     # ARGUMENTS:
@@ -42,6 +41,7 @@ def extract_numbers_from_file(f_name, f_dir, delim=' '):
     # NOTES:
     #           This will only work for files containing integers! (for now)
 
+    import os
     os.chdir(f_dir)
 
     with open(f_name, 'r') as f:
@@ -57,16 +57,8 @@ def extract_numbers_from_file(f_name, f_dir, delim=' '):
     return lines
 
 
-def number_to_array(input_number):
-    #TODO: Rename this to "digits_to_array()"
-
-    # This will take a single number and return its digits as a list
-    #
-    # ARGUMENTS:
-    #           input_number (int)      the number to be split up
-    #
-    # RETURNS:
-    #           arr (int list)          list of digits of input_number
+def digits_to_list(input_number):
+    # This will take <input_number> and return its digits as a list
 
     arr = []
 
@@ -78,15 +70,12 @@ def number_to_array(input_number):
 
 
 def max_list_product(input_list, dig_num=13):
-
-    # This will take a list of numbers and return the largest product of adjacent numbers
+    # This will take <input_list> of numbers and return the largest product of <dig_num> adjacent numbers
     #
-    # ARGUMENTS:
-    #           input_list (int list)        the list of numbers to analyze
-    #           dig_num   (int)             how many adjacent numbers to analyze the product of
+    # ARGUMENTS: input_list (int list)        the list of numbers to analyze
+    #            dig_num   (int)             how many adjacent numbers to analyze the product of
     #
-    # RETURNS:
-    #           high_prod (int)             the largest product of adjacent numbers
+    # RETURNS:   high_prod (int)             the largest product of adjacent numbers
 
     # initializations
     high_prod    = 0
