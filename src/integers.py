@@ -4,14 +4,17 @@
 import list_manip
 
 
-def sum_of_multiples(lim, div):
-    # This function calculates the sum of multiples of <div> up to <lim> using
-    # Gauss' trick.
+def list_of_fibonacci(limit):
+    # Returns list of fibonacci numbers below <limit>
 
-    quo = lim / div
-    s = div * quo * (quo + 1) / 2      # Gauss' trick
+    f = [1, 2]      # first two fibonacci numbers
+    n = 1           # iterator
 
-    return s
+    while f[n] < limit:
+        f.append(f[n] + f[n - 1])   # add the next fib. num. to end of list
+        n += 1                      # iterate
+
+    return f
 
 
 def list_of_products(vector):
@@ -42,3 +45,13 @@ def list_of_products(vector):
         prod_vector.remove(num)
 
     return prod_vector
+
+
+def sum_of_multiples(lim, div):
+    # This function calculates the sum of multiples of <div> up to <lim> using
+    # Gauss' trick.
+
+    quo = lim / div
+    s = div * quo * (quo + 1) / 2      # Gauss' trick
+
+    return s
