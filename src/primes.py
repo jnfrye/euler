@@ -13,6 +13,7 @@ def largest_prime_factor(limit):
 
 def prime(n=6):
     # returns the <n>th prime number
+    # pretty slow...
 
     p = 3
     primes = [2, p]
@@ -21,14 +22,14 @@ def prime(n=6):
         p = 2
 
     else:
-
         while len(primes) < n:
             p += 2
             is_prime = True
             for x in primes:
-            # To be more efficient, should only check against primes that are <= sqrt (p)
+            # TODO should only check against primes that are <= sqrt (p)
                 if p % x == 0:
                     is_prime = False
+
             if is_prime:
                 primes.append(p)
 
