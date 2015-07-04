@@ -1,4 +1,4 @@
-import integers
+import src.integers as integers
 
 
 # -----Euler Problem 4-----

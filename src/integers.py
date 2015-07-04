@@ -6,6 +6,19 @@ import list_manip
 # ******** INTEGERS MODULE ********
 # The following functions are useful for integer analysis and manipulation
 
+
+def digits_to_list(input_number):
+    # This takes <input_number> and return its digits as a list
+
+    arr = []
+
+    while input_number > 0:
+        arr.append(int(input_number % 10))
+        input_number = input_number / 10
+
+    return arr
+
+
 def is_palindrome(number):
     # Returns True if <number> is a palindrome
 
