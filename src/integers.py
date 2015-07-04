@@ -4,6 +4,15 @@
 import list_manip
 
 
+def is_palindrome(number):
+    # Returns True if <number> is a palindrome
+
+    num_string = str(number)
+    reverse = int(num_string[::-1])
+
+    return reverse - number == 0
+
+
 def list_of_fibonacci(limit):
     # Returns list of fibonacci numbers below <limit>
 
@@ -55,3 +64,20 @@ def sum_of_multiples(lim, div):
     s = div * quo * (quo + 1) / 2      # Gauss' trick
 
     return s
+
+
+def times_table(digits):
+    # Returns a multiplication table for every number with <digits> digits
+
+    factors = range(10 ** (digits - 1), 10 ** digits)[::-1]
+    times_tab = []
+    row = []
+
+    for f1 in factors:
+        for f2 in factors:
+            product = f1 * f2
+            row.append(product)
+        times_tab.append(row)
+        row = []
+
+    return times_tab
