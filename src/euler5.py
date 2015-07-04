@@ -3,24 +3,9 @@
 
 import sympy
 
-# This new method is faster by a factor of ~63 for the default arg!
-
 
 def least_common_multiple(divisors=range(1, 21)):
-
-    # TODO: FILL THIS OUT
-    #
-    # ARGUMENTS:
-    #           f_name (string)         name of file
-    #
-    # RETURNS:
-    #           lines (2D int list)     2D list of numbers in the file
-    #
-    # NOTES:
-    #           This will only work for files containing integers! (for now)
-    # TODO
-
-
+    # Returns least common multiple of INTs in <divisors>
 
     # No matter the divisors, we at least need the max divisor as an LCM
     lcm = max(divisors)
